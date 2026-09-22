@@ -6,7 +6,7 @@ databases:
 
 services:
   - type: web
-    name: foodme-aregshekoyan
+    name: foodme-ashekoyan
     runtime: docker
     plan: free
     # Rebuild and redeploy on every push to the tracked branch. This is also
