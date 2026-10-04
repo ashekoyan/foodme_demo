@@ -1,16 +1,6 @@
 import { test, expect } from "@playwright/test";
 import { createAccountAtCheckout } from "./auth";
-
-async function addFirstDishToCart(page: import("@playwright/test").Page) {
-  await page.goto("/explore");
-  await page.locator("a.cc_card").first().click();
-  await expect(page).toHaveURL(/\/chef\/\d+/);
-  await page.locator("button.dc_card").first().click();
-  await page.getByRole("button", { name: "Add to cart" }).click();
-  const cart = page.locator("aside.uc-panel");
-  await expect(cart.locator(".cic_root")).toHaveCount(1);
-  return cart;
-}
+import { addFirstDishToCart } from "./helpers";
 
 test.describe("Storefront flows", () => {
   test("home CTA navigates to explore and header Explore chefs works", async ({ page }) => {
